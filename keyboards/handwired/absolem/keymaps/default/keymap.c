@@ -8,7 +8,7 @@
 // entirely and just use numbers.
 #define _ABC 0
 #define _SYM 1
-#define _HUN 2
+#define _MSC 2
 #define _NAV 3
 #define _NUM 4
 
@@ -18,12 +18,57 @@
 #define __MA OSM(MOD_LALT)
 #define __MS OSM(MOD_LSFT)
 
+
+enum custom_keycodes {
+  MY_COMM = SAFE_RANGE,
+  MY_DOT,
+  MY_DASH,
+  MY_EXLM,
+  MY_QST
+};
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case MY_COMM:
+      if (record->event.pressed) {
+        SEND_STRING(", ");
+      }
+      break;
+    case MY_DOT:
+      if (record->event.pressed) {
+        SEND_STRING(". ");
+        set_oneshot_mods(MOD_LSFT);
+      }
+      break;
+    case MY_DASH:
+      if (record->event.pressed) {
+        SEND_STRING(" -- ");
+      }
+      break;
+    case MY_EXLM:
+      if (record->event.pressed) {
+        SEND_STRING("! ");
+        set_oneshot_mods(MOD_LSFT);
+      }
+      break;
+    case MY_QST:
+      if (record->event.pressed) {
+        SEND_STRING("? ");
+        set_oneshot_mods(MOD_LSFT);
+      }
+      break;
+
+  }
+  return true;
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_ABC] = LAYOUT(
-    HU_Q,    HU_W,    HU_F,    HU_P,    HU_B,             HU_J,    HU_L,    HU_U,      HU_Y,   OSL(_HUN),
-    HU_A,    HU_R,    HU_S,    HU_T,    HU_G,             HU_M,    HU_N,    HU_E,      HU_I,   HU_O,
-    HU_Z,    HU_X,    HU_C,    HU_D,    HU_V,             HU_K,    HU_H,    OSL(_SYM), HU_EE,  HU_AA,
+    HU_Q,    HU_W,    HU_F,    HU_P,    HU_B,             HU_J,    HU_L,    HU_U,      HU_Y,      HU_AA,
+    HU_A,    HU_R,    HU_S,    HU_T,    HU_G,             HU_M,    HU_N,    HU_E,      HU_I,      HU_O,
+    HU_Z,    HU_X,    HU_C,    HU_D,    HU_V,             HU_K,    HU_H,    OSL(_SYM), OSL(_MSC), HU_EE,
     CTL_T(KC_TAB), LT(_NAV, KC_SPC), MEH_T(KC_ENT),       OSM(MOD_LSFT), LT(_NUM, KC_BSPC), GUI_T(KC_ESC)
   ),
 
@@ -34,11 +79,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                       HU_UNDS, HU_DQOT, HU_QUOT,          HU_DOT,  HU_COMM, HU_MINS
   ),
 
-  [_HUN] = LAYOUT(
-    _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, 
-    _______, _______, _______, _______, _______,          _______, HU_II,   _______, _______, _______, 
-    _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, 
-                      HU_UEE,  HU_UU,   HU_UE,            HU_OE,   HU_OO,   HU_OEE
+  [_MSC] = LAYOUT(
+    _______, HU_UEE,  HU_UE,   HU_UU,   _______,          _______, _______, _______, _______,   _______, 
+    HU_II,   HU_OEE,  HU_OE,   HU_OO,   _______,          _______, _______, _______, _______,   _______, 
+    _______, _______, MY_QST,  MY_EXLM, _______,          _______, _______, _______, OSL(_MSC), _______, 
+                      _______, _______, _______,          MY_DOT,  MY_COMM, MY_DASH
   ),
 
   [_NAV] = LAYOUT(
