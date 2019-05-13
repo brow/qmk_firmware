@@ -29,6 +29,7 @@ enum custom_keycodes {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  // SEND_STRING is software layout sensitive --> simulate US QUERTY
   switch (keycode) {
     case MY_COMM:
       if (record->event.pressed) {
@@ -43,18 +44,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case MY_DASH:
       if (record->event.pressed) {
-        SEND_STRING(" -- ");
+        SEND_STRING(" // "); // US QUERTY "/" == HU QWERTZ "-"
       }
       break;
     case MY_EXLM:
       if (record->event.pressed) {
-        SEND_STRING("! ");
+        SEND_STRING("$ "); // US QUERTY "$" == HU QWERTZ "!"
         set_oneshot_mods(MOD_LSFT);
       }
       break;
     case MY_QST:
       if (record->event.pressed) {
-        SEND_STRING("? ");
+        SEND_STRING("< "); // US QUERTY "<" == HU QWERTZ "?"
         set_oneshot_mods(MOD_LSFT);
       }
       break;
@@ -82,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_MSC] = LAYOUT(
     _______, HU_UEE,  HU_UE,   HU_UU,   _______,          _______, _______, _______, _______,   _______, 
     HU_II,   HU_OEE,  HU_OE,   HU_OO,   _______,          _______, _______, _______, _______,   _______, 
-    _______, _______, MY_QST,  MY_EXLM, _______,          _______, _______, _______, OSL(_MSC), _______, 
+    _______, _______, MY_QST,  MY_EXLM, _______,          _______, _______, _______, OSL(_MSC), _______, 
                       _______, _______, _______,          MY_DOT,  MY_COMM, MY_DASH
   ),
 
