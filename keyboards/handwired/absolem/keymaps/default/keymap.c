@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, HU_UEE,  HU_UE,   HU_UU,   _______,          _______, _______, _______, _______,   _______, 
     HU_II,   HU_OEE,  HU_OE,   HU_OO,   _______,          _______, _______, _______, _______,   _______, 
     _______, _______, MY_QST,  MY_EXLM, _______,          _______, _______, _______, OSL(_MSC), _______, 
-                      _______, _______, _______,          MY_DOT,  MY_COMM, MY_DASH
+                      HU_UNDS, HU_DQOT, HU_QUOT,          MY_DOT,  MY_COMM, MY_DASH
   ),
 
   [_NAV] = LAYOUT(
