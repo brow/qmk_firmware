@@ -33,28 +33,33 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case MY_COMM:
       if (record->event.pressed) {
+        clear_oneshot_mods();
         SEND_STRING(", ");
       }
       break;
     case MY_DOT:
       if (record->event.pressed) {
+        clear_oneshot_mods();
         SEND_STRING(". ");
         set_oneshot_mods(MOD_LSFT);
       }
       break;
     case MY_DASH:
       if (record->event.pressed) {
+        clear_oneshot_mods();
         SEND_STRING(" // "); // US QUERTY "/" == HU QWERTZ "-"
       }
       break;
     case MY_EXLM:
       if (record->event.pressed) {
+        clear_oneshot_mods();
         SEND_STRING("$ "); // US QUERTY "$" == HU QWERTZ "!"
         set_oneshot_mods(MOD_LSFT);
       }
       break;
     case MY_QST:
       if (record->event.pressed) {
+        clear_oneshot_mods();
         SEND_STRING("< "); // US QUERTY "<" == HU QWERTZ "?"
         set_oneshot_mods(MOD_LSFT);
       }
