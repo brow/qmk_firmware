@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     HU_MORE, HU_RCBR, HU_RBRC, HU_RPRN, HU_BSLS,          HU_TILD, HU_CIRC, XXXXXXX, XXXXXXX, HU_AT,
     HU_LESS, HU_LCBR, HU_LBRC, HU_LPRN, HU_SLSH,          HU_PERC, HU_ASTR, XXXXXXX, HU_COLN, HU_SCLN,
     HU_HASH, HU_DLR,  HU_QST,  HU_EXLM, HU_PIPE,          HU_AMPR, HU_EQL,  _______, HU_PLUS, HU_GRV,
-                      HU_UNDS, HU_DQOT, HU_QUOT,          HU_DOT,  HU_COMM, HU_MINS
+                      HU_UNDS, HU_QUOT, HU_DQOT,          HU_DOT,  HU_COMM, HU_MINS
   ),
 
   [_MSC] = LAYOUT(
@@ -93,9 +93,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_NAV] = LAYOUT(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLU,          KC_WH_U, KC_PGUP, KC_SPC,  KC_PGDN, KC_INS,
-    __MG,    __MA,    __MS,    __MC,    KC_MUTE,          KC_WH_D, KC_LEFT, KC_UP,   KC_RGHT, KC_TAB,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_VOLD,          KC_APP,  KC_HOME, KC_DOWN, KC_END,  KC_ENT,
+    KC_MUTE, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLU,          KC_WH_U, KC_PGUP, KC_SPC,  KC_PGDN, KC_INS,
+    __MG,    __MA,    __MS,    __MC,    KC_VOLD,          KC_WH_D, KC_LEFT, KC_UP,   KC_RGHT, KC_TAB,
+    C(HU_Z), C(HU_X), C(HU_C), C(HU_D), C(HU_V),          KC_APP,  KC_HOME, KC_DOWN, KC_END,  KC_ENT,
                       _______, _______, _______,          KC_DEL,  KC_BSPC, KC_ESC
   ),
 
