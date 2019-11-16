@@ -44,9 +44,13 @@ void matrix_scan_user(void) {
 	uint8_t layer = biton32(layer_state);
 
 	PORTD |= 1<<5;
+	PORTC &= ~(1<<7);
 	switch (layer) {
 		case 1:
 			PORTD &= ~(1<<5);
+			break;
+		case 2:
+			PORTC |= 1<<7;
 			break;
 		default:
 			break;
