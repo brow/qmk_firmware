@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		KC_LALT, KC_LCTL, KC_LGUI, KC_LSFT, KC_NO, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT, KC_MPLY,
 		KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 		KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS),
-		
+
 };
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
@@ -41,6 +41,16 @@ void matrix_init_user(void) {
 }
 
 void matrix_scan_user(void) {
+	uint8_t layer = biton32(layer_state);
+
+	PORTD |= 1<<5;
+	switch (layer) {
+		case 1:
+			PORTD &= ~(1<<5);
+			break;
+		default:
+			break;
+	}
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
