@@ -45,15 +45,15 @@ void matrix_scan_user(void) {
 
 	PORTD |= 1<<5;
 	PORTC &= ~(1<<7);
-	switch (layer) {
-		case 1:
-			PORTD &= ~(1<<5);
-			break;
-		case 2:
-			PORTC |= 1<<7;
-			break;
-		default:
-			break;
+
+	if (layer == 1 || layer == 3) {
+		// Green LED on
+		PORTD &= ~(1<<5);
+	}
+
+	if (layer == 2 || layer == 3) {
+		// Yellow LED on
+		PORTC |= 1<<7;
 	}
 }
 
