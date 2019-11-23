@@ -1,5 +1,6 @@
 # MCU name
 MCU = atmega32u4
+BOOTLOADER = caterina
 
 # Processor frequency.
 #     This will define a symbol, F_CPU, in all source code files equal to the
@@ -35,11 +36,6 @@ F_USB = $(F_CPU)
 
 # Interrupt driven control endpoint task(+60)
 OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
-
-
-# Boot Section Size in *bytes*
-OPT_DEFS += -DBOOTLOADER_SIZE=4096
-
 
 # Build Options
 #   comment out to disable the options.
