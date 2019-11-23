@@ -43,18 +43,11 @@ void matrix_init_user(void) {
 void matrix_scan_user(void) {
 	uint8_t layer = biton32(layer_state);
 
-	PORTD |= 1<<5;
-	PORTC &= ~(1<<7);
+    // Green LED is on if D5 is low
+    writePin(D5, !(layer == 1 || layer == 3));
 
-	if (layer == 1 || layer == 3) {
-		// Green LED on
-		PORTD &= ~(1<<5);
-	}
-
-	if (layer == 2 || layer == 3) {
-		// Yellow LED on
-		PORTC |= 1<<7;
-	}
+    // Yellow LED on if C7 is high
+    writePin(C7, layer == 2 || layer == 3);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
