@@ -58,10 +58,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_LOWER] = LAYOUT(
-      _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE,                                     _______, _______, _______, _______, _______, KC_BSLS,
-      _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_GRV,                                      KC_PLUS, KC_MINS, KC_SLSH, KC_ASTR, KC_PERC, KC_QUOT,
-      _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_TILD, _______, _______, _______, _______, KC_AMPR, KC_EQL,  KC_COMM, KC_DOT,  KC_SLSH, KC_MINS,
-                                 _______, _______, _______, KC_SCLN, KC_EQL,  KC_EQL,  KC_SCLN, _______, _______, _______
+      _______, KC_GRV,  KC_7,    KC_8,    KC_9,    KC_PMNS,                                     _______, KC_UNDS, KC_EXLM, KC_DQUO, KC_PLUS, _______,
+      _______, KC_LALT, KC_4,    KC_5,    KC_6,    KC_PDOT,                                     KC_CIRC, KC_MINS, KC_EQL,  KC_DLR,  KC_RCTL, _______,
+      _______, KC_P0,   KC_1,    KC_2,    KC_3,    _______, _______, _______, _______, _______, _______, _______, _______, KC_GT,   KC_BSLS, _______,
+                                 _______, _______, MO(2),   KC_LSFT, KC_LGUI, _______, _______, KC_TRNS, _______, _______
     ),
 /*
  * Raise Layer: Number keys, media, navigation
