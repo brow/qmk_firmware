@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______,   KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    _______,
       _______,   KC_A,   KC_S,   KC_D,   KC_F,   KC_G,                                         KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, _______,
       _______,   KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,   _______,   _______, _______, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, _______,
-                              _______, _______, _______, KC_LSFT, KC_LGUI, KC_ENT, KC_SPC, _______,  _______, _______
+                              _______, _______, MO(2),   KC_LSFT,   KC_LGUI, KC_ENT,  KC_SPC,  MO(1),   _______, _______
     ),
 /*
  * Lower Layer: Symbols
@@ -78,10 +78,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                        `----------------------------------'  `----------------------------------'
  */
     [_RAISE] = LAYOUT(
-      _______, KC_1, 	  KC_2,    KC_3,    KC_4,    KC_5,                                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-      _______, _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_VOLU,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,
-      _______, _______, _______, _______, KC_MUTE, KC_VOLD, _______, _______, _______, _______, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, _______,
-                                 _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
+      _______, _______, KC_AT,   KC_LPRN, KC_RPRN, _______,                                     KC_AMPR, KC_LBRC, KC_RBRC, KC_QUOT, KC_PERC, _______,
+      _______, KC_LALT, KC_LCTL, KC_LGUI, KC_LSFT, _______,                                     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ESC,  _______,
+      _______, KC_BSPC, _______, _______, _______, _______, _______, _______, _______, _______, KC_TILD, KC_PAST, KC_HASH, _______, KC_SLSH, _______,
+                                 _______, _______, KC_TRNS, _______, _______, KC_ENT,  KC_BSPC, KC_TAB,  _______, _______
     ),
 /*
  * Adjust Layer: Function keys, RGB
